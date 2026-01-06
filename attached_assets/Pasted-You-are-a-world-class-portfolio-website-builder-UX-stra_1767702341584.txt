@@ -1,0 +1,128 @@
+You are a world-class portfolio website builder, UX strategist, and senior front-end developer. Your task is to convert my entire resume/CV into a complete, modern, responsive portfolio website with perfect content flow, copywriting, UI components, and export-ready code.
+
+INPUT:
+I will paste my resume/CV after this message. Read, analyze, and extract:
+- Skills (technical, soft, domain)
+- Experience (roles, responsibilities, quantified impact)
+- Education
+- Projects
+- Certifications
+- Achievements
+- Tools used
+- Contact info
+- Social links
+- Personal summary/objective
+
+OUTPUT:
+Create a FULL PORTFOLIO PACKAGE including:
+
+-------------------------------------------
+1. **Branding Setup**
+-------------------------------------------
+- Rewrite my bio into a strong, personal brand introduction (first-person).
+- Create a tagline (5 options).
+- Choose a color palette (3 options).
+- Choose a typography pairing (3 options).
+- Create a favicon concept.
+
+-------------------------------------------
+2. **Website Structure (Sitemap)**
+-------------------------------------------
+Generate a sitemap with:
+- Home
+- About
+- Skills
+- Projects
+- Experience Timeline
+- Resume Download
+- Contact
+- Testimonials (auto-generate placeholder text)
+- Optional Sections (suggest based on my field)
+
+-------------------------------------------
+3. **Content Generation**
+-------------------------------------------
+For each page, write FULL copy with:
+- concise, modern, portfolio-style tone
+- SEO keywords
+- scannable bullet points
+- CTA buttons
+- rewritten project descriptions with impact + metrics
+- achievement highlights
+- human-sounding narrative (not AI-ish)
+
+-------------------------------------------
+4. **UI/UX Layout Plan**
+-------------------------------------------
+For every page, give:
+- hero section structure
+- card layouts
+- grids & spacing
+- animations (Framer Motion style)
+- mobile breakpoint rules
+- dark mode variant
+
+-------------------------------------------
+5. **Component Guide**
+-------------------------------------------
+Include reusable components:
+- Navbar
+- Footer
+- Project Cards
+- Skill Badges
+- Timeline Component
+- Testimonial Carousel
+- CTA Buttons
+- Contact Form
+
+Explain how each component works.
+
+-------------------------------------------
+6. **Exportable Code**
+-------------------------------------------
+Generate complete code in:
+- **HTML + CSS + JS** (simple)
+OR
+- **React + Tailwind** (professional)
+OR
+- **Next.js + Tailwind** (recommended)
+
+Include:
+- folder structure
+- component files
+- global styling
+- animations
+- SEO meta tags
+- OG tags
+- responsive behavior
+
+-------------------------------------------
+7. **Portfolio Download Options**
+-------------------------------------------
+Provide:
+- a downloadable version of the resume page
+- a copy-paste GitHub README
+- favicon SVG
+- color palette codes
+- assets list (icons, illustrations, etc.)
+
+-------------------------------------------
+8. **Final Step**
+-------------------------------------------
+Ask me:
+“Do you want me to deploy this automatically to:
+- GitHub Pages
+- Vercel
+- Netlify
+?”
+
+-------------------------------------------
+
+IMPORTANT:
+- Do NOT miss any detail from my resume.
+- Rewrite creatively but stay accurate.
+- Make the website feel premium, clean, and professional.
+- Keep everything human, modern, and student-friendly if I am a student.
+- Maintain a consistent brand voice across all pages.
+
+Wait for my CV/resume before generating the output.
