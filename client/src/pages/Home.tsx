@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Code2, Database, Layout, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { useProjects, useSkills } from "@/hooks/use-portfolio";
-import { ProjectCard } from "@/components/ProjectCard";
+import { useSkills } from "@/hooks/use-portfolio";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 
@@ -86,67 +85,6 @@ const SkillsPreview = () => {
   );
 };
 
-const FeaturedProjects = () => {
-  const { data: projects, isLoading } = useProjects();
-
-  const demoProjects = [
-    {
-      id: 101,
-      title: "EasyRide",
-      description: "A responsive multi-page ride-sharing service concept.",
-    link: "https://brundareddycse.github.io/EasyRide/",
-      
-      techStack: ["React", "Tailwind"],
-      githubLink: "https://github.com/brundareddycse/EasyRide",
-      imageUrl: "/easyride2.png",
-    },
-    {
-      id: 102,
-      title: "Transaction & User Analytics",
-      description: "Financial data analysis project using SQL.",
-      link: null,
-      techStack: ["SQL", "Python"],
-    githubLink: "https://github.com/brundareddycse/Transaction-User-Behavior-Analytics",
-      
-      imageUrl: "/sql1.png",
-    },
-  ];
-
-  if (isLoading) return null;
-
-  return (
-    <section className="py-24">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">Featured Projects</h2>
-            <p className="text-muted-foreground">Some of my recent work</p>
-          </div>
-          <Link href="/projects">
-            <Button variant="ghost" className="hidden md:flex">
-              View All <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {(projects ?? demoProjects).slice(0, 3).map((project, index) => (
-            <ProjectCard key={project.id} project={project as any} index={index} />
-          ))}
-        </div>
-        
-        <div className="mt-8 text-center md:hidden">
-          <Link href="/projects">
-            <Button variant="outline" className="w-full">
-              View All Projects
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const CTA = () => (
   <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
@@ -174,7 +112,6 @@ export default function Home() {
       <main>
         <Hero />
         <SkillsPreview />
-        <FeaturedProjects />
         <CTA />
       </main>
       <Footer />
