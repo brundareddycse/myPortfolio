@@ -26,6 +26,11 @@ export async function registerRoutes(
     res.json(experience);
   });
 
+  app.get(api.certifications.list.path, async (req, res) => {
+    const certifications = await storage.getCertifications();
+    res.json(certifications);
+  });
+
   app.post(api.contact.submit.path, async (req, res) => {
     try {
       const input = api.contact.submit.input.parse(req.body);

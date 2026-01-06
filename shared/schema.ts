@@ -1,58 +1,44 @@
-import { pgTable, text, serial, timestamp, varchar, jsonb, integer } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const projects = pgTable("projects", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  techStack: jsonb("tech_stack").$type<string[]>().notNull(),
-  link: text("link"),
-  githubLink: text("github_link"),
-  imageUrl: text("image_url").default("https://placehold.co/600x400"),
+export const insertProjectSchema = z.object({
+  title: z.string().min(1, "Title is required"),
+  description: z.string().min(1, "Description is required"),
+  techStack: z.array(z.string()),
+  link: z.string().optional().nullable(),
+  githubLink: z.string().optional().nullable(),
+  imageUrl: z.string().optional(),
 });
 
-export const skills = pgTable("skills", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  category: text("category").notNull(), // 'Frontend', 'Backend', 'Tools', 'Languages'
-  proficiency: integer("proficiency").default(0), // 0-100
+export const insertSkillSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  category: z.string().min(1, "Category is required"),
+  proficiency: z.number().min(0).max(100).optional(),
 });
 
-export const experience = pgTable("experience", {
-  id: serial("id").primaryKey(),
-  role: text("role").notNull(),
-  company: text("company").notNull(),
-  period: text("period").notNull(),
-  description: text("description").notNull(),
+export const insertExperienceSchema = z.object({
+  role: z.string().min(1, "Role is required"),
+  company: z.string().min(1, "Company is required"),
+  period: z.string().min(1, "Period is required"),
+  description: z.string().min(1, "Description is required"),
 });
 
-export const certifications = pgTable("certifications", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  issuer: text("issuer").notNull(),
-  date: text("date").notNull(),
-  link: text("link"),
+export const insertCertificationSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  issuer: z.string().min(1, "Issuer is required"),
+  date: z.string().min(1, "Date is required"),
+  link: z.string().optional().nullable(),
 });
 
-export const contacts = pgTable("contacts", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
-  message: text("message").notNull(),
-  createdAt: timestamp("created_at").defaultNow(),
+export const insertContactSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Invalid email address"),
+  message: z.string().min(1, "Message is required"),
 });
 
-export const insertProjectSchema = createInsertSchema(projects);
-export const insertSkillSchema = createInsertSchema(skills);
-export const insertExperienceSchema = createInsertSchema(experience);
-export const insertCertificationSchema = createInsertSchema(certifications);
-export const insertContactSchema = createInsertSchema(contacts);
-
-export type Project = typeof projects.$inferSelect;
+export type Project = z.infer<typeof insertProjectSchema> & { id: number };
 export type InsertProject = z.infer<typeof insertProjectSchema>;
-export type Skill = typeof skills.$inferSelect;
-export type Experience = typeof experience.$inferSelect;
-export type Certification = typeof certifications.$inferSelect;
-export type Contact = typeof contacts.$inferSelect;
+export type Skill = z.infer<typeof insertSkillSchema> & { id: number };
+export type Experience = z.infer<typeof insertExperienceSchema> & { id: number };
+export type Certification = z.infer<typeof insertCertificationSchema> & { id: number };
+export type Contact = z.infer<typeof insertContactSchema> & { id: number; createdAt?: Date };
 export type InsertContact = z.infer<typeof insertContactSchema>;
