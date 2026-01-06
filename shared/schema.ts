@@ -27,6 +27,14 @@ export const experience = pgTable("experience", {
   description: text("description").notNull(),
 });
 
+export const certifications = pgTable("certifications", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  issuer: text("issuer").notNull(),
+  date: text("date").notNull(),
+  link: text("link"),
+});
+
 export const contacts = pgTable("contacts", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
@@ -38,11 +46,13 @@ export const contacts = pgTable("contacts", {
 export const insertProjectSchema = createInsertSchema(projects);
 export const insertSkillSchema = createInsertSchema(skills);
 export const insertExperienceSchema = createInsertSchema(experience);
+export const insertCertificationSchema = createInsertSchema(certifications);
 export const insertContactSchema = createInsertSchema(contacts);
 
 export type Project = typeof projects.$inferSelect;
 export type InsertProject = z.infer<typeof insertProjectSchema>;
 export type Skill = typeof skills.$inferSelect;
 export type Experience = typeof experience.$inferSelect;
+export type Certification = typeof certifications.$inferSelect;
 export type Contact = typeof contacts.$inferSelect;
 export type InsertContact = z.infer<typeof insertContactSchema>;

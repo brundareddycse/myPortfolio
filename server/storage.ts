@@ -4,6 +4,7 @@ import {
   skills,
   experience,
   contacts,
+  certifications,
   type InsertContact,
   type InsertProject,
 } from "@shared/schema";
@@ -12,6 +13,7 @@ export interface IStorage {
   getProjects(): Promise<typeof projects.$inferSelect[]>;
   getSkills(): Promise<typeof skills.$inferSelect[]>;
   getExperience(): Promise<typeof experience.$inferSelect[]>;
+  getCertifications(): Promise<typeof certifications.$inferSelect[]>;
   createContact(contact: InsertContact): Promise<typeof contacts.$inferSelect>;
   seedData(): Promise<void>;
 }
@@ -27,6 +29,10 @@ export class DatabaseStorage implements IStorage {
 
   async getExperience() {
     return await db.select().from(experience);
+  }
+
+  async getCertifications() {
+    return await db.select().from(certifications);
   }
 
   async createContact(contact: InsertContact) {
@@ -78,17 +84,26 @@ export class DatabaseStorage implements IStorage {
           description: "Pursuing Bachelor of Technology in Computer Science. CGPA: 9.46. Developing strong foundation in algorithms, data structures, and software engineering.",
         },
         {
-          role: "Virtual Intern",
-          company: "J.P. Morgan Chase & Co.",
-          period: "Certification",
-          description: "Advanced Software Engineering Virtual Experience. Worked on banking software simulation, backend configuration, and API integration.",
-        },
-        {
           role: "Hackathon Finalist",
           company: "Code Rush 2K25",
           period: "2025",
           description: "Top 20 Team out of 100. Developed 'Smart Transport System' showcasing web development skills and teamwork.",
         },
+      ]);
+
+      await db.insert(certifications).values([
+        {
+          name: "Advanced Software Engineering Virtual Experience",
+          issuer: "J.P. Morgan Chase & Co. (via Forage)",
+          link: "#",
+          date: "2024",
+        },
+        {
+          name: "Introduction To Front-End Development",
+          issuer: "Meta / Coursera",
+          link: "#",
+          date: "2023",
+        }
       ]);
     }
   }

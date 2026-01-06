@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertContactSchema, insertProjectSchema, insertSkillSchema, insertExperienceSchema, projects, skills, experience, contacts } from './schema';
+import { insertContactSchema, insertProjectSchema, insertSkillSchema, insertExperienceSchema, insertCertificationSchema, projects, skills, experience, contacts, certifications } from './schema';
 
 export const api = {
   projects: {
@@ -34,6 +34,15 @@ export const api = {
       path: '/api/experience',
       responses: {
         200: z.array(z.custom<typeof experience.$inferSelect>()),
+      },
+    },
+  },
+  certifications: {
+    list: {
+      method: 'GET' as const,
+      path: '/api/certifications',
+      responses: {
+        200: z.array(z.custom<typeof certifications.$inferSelect>()),
       },
     },
   },
