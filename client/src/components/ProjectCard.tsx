@@ -1,7 +1,19 @@
+"use client"
+
 import { Project } from "@shared/schema";
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -40,7 +52,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             ))}
           </div>
           
-          <div className="flex gap-3 pt-2 border-t border-border/50 mt-4">
+          <div className="flex gap-3 pt-2 border-t border-border/50 mt-4 items-center">
             {project.githubLink && (
               <a 
                 href={project.githubLink}
@@ -61,6 +73,52 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 Live Demo <ExternalLink className="w-4 h-4" />
               </a>
             )}
+            {/* Preview dialog trigger */}
+            <Dialog>
+              {/* <DialogTrigger asChild>
+                <button className="ml-auto bg-primary text-primary-foreground px-3 py-1 rounded-md text-sm font-medium hover:opacity-95 transition">
+                  Preview
+                </button>
+              </DialogTrigger> */}
+
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>{project.title}</DialogTitle>
+                  <DialogDescription>{project.description}</DialogDescription>
+                </DialogHeader>
+
+                <div className="mt-4">
+                  <img
+                    src={project.imageUrl || "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80"}
+                    alt={project.title}
+                    className="w-full h-64 object-cover rounded-md"
+                  />
+
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.techStack.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="bg-secondary/50 text-secondary-foreground font-normal">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3 mt-6">
+                    {project.githubLink && (
+                      <a href={project.githubLink} target="_blank" rel="noreferrer" className="px-4 py-2 bg-muted-foreground/10 rounded-md text-sm font-medium hover:underline">
+                        View Code
+                      </a>
+                    )}
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noreferrer" className="px-4 py-2 bg-muted-foreground/10 rounded-md text-sm font-medium hover:underline">
+                        Open Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <DialogFooter />
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>

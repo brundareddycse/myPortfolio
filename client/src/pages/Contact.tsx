@@ -90,7 +90,7 @@ export default function Contact() {
                   <div>
                     <h3 className="font-bold text-lg mb-1">Location</h3>
                     <p className="text-muted-foreground text-lg">
-                      Bangalore, India
+                      Tirupati, India
                     </p>
                   </div>
                 </div>

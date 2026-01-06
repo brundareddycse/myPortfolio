@@ -39,7 +39,7 @@ export function Footer() {
             <h4 className="font-bold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>ybrundareddy2006@gmail.com</li>
-              <li>Bangalore, India</li>
+              <li>Tirupati, India</li>
             </ul>
           </div>
         </div>

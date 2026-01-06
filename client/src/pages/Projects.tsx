@@ -5,8 +5,35 @@ import { ProjectCard } from "@/components/ProjectCard";
 import { Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 
+
+
+const localProjects = [
+  {
+    id: 1,
+    title: "EasyRide",
+    description: "A responsive multi-page ride-sharing service concept.",
+    link: "https://kadimisettijaswanth.github.io/coderush2k25/",
+    techStack: [],
+    githubLink: "https://github.com/brundareddycse/EasyRide",
+    // preview: "https://brundareddycse.github.io/EasyRide/",
+    imageUrl: "/easyride2.png",
+  },
+  {
+    id: 2,
+    title: "Transaction & User Analytics",
+    description: "Financial data analysis project using SQL.",
+    link: null,
+    techStack: [],
+    githubLink: "https://github.com/brundareddycse/Transaction-User-Behavior-Analytics",
+    imageUrl: "/sql1.png",
+  },
+];
+
+
 export default function Projects() {
-  const { data: projects, isLoading } = useProjects();
+  const projects = localProjects;
+const isLoading = false;
+
 
   return (
     <div className="min-h-screen bg-background">

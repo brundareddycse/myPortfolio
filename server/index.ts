@@ -1,5 +1,6 @@
 import express, { type Request, Response, NextFunction } from "express";
-import { registerRoutes } from "./routes";
+// registerRoutes is dynamically imported below to avoid importing DB-backed
+// modules when DATABASE_URL is not set (allows local client preview).
 import { serveStatic } from "./static";
 import { createServer } from "http";
 
@@ -60,7 +61,12 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  await registerRoutes(httpServer, app);
+  if (process.env.DATABASE_URL) {
+    const { registerRoutes } = await import("./routes");
+    await registerRoutes(httpServer, app);
+  } else {
+    log("DATABASE_URL not set — skipping API routes and DB seeding", "index");
+  }
 
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
@@ -89,7 +95,6 @@ app.use((req, res, next) => {
     {
       port,
       host: "0.0.0.0",
-      reusePort: true,
     },
     () => {
       log(`serving on port ${port}`);

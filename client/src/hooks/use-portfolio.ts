@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { api, type InsertContact } from "@shared/routes"; // Note: shared/routes imports from schema
+import { api } from "@shared/routes";
+import type { InsertContact } from "@shared/schema";
 
 // Projects Hooks
 export function useProjects() {
@@ -12,6 +13,7 @@ export function useProjects() {
     },
   });
 }
+
 
 // Skills Hooks
 export function useSkills() {

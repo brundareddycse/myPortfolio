@@ -46,10 +46,7 @@ export default function About() {
                     work behind the scenes, which quickly evolved into a love for building software.
                   </p>
                   <p>
-                    I specialize in Full-Stack Development with a strong foundation in Python and Java. 
-                    I enjoy tackling complex problems and turning them into simple, elegant solutions. 
-                    Currently, I'm focused on expanding my knowledge in modern web technologies and 
-                    contributing to open-source projects.
+                   I am a budding developer with a strong foundation in Java, SQL, and Data Structures. I am a logic-driven problem solver passionate about building efficient systems and am always open to learning new technologies to grow my technical toolkit.
                   </p>
                 </div>
               </section>
@@ -122,7 +119,7 @@ export default function About() {
                   <h2 className="text-2xl font-bold font-display">Interests</h2>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["Web Development", "Data Analysis", "Artificial Intelligence", "System Design", "Open Source", "UI/UX Design"].map(interest => (
+                  {["Web Development", "Data Analysis", "Artificial Intelligence", "System Design", "Open Source"].map(interest => (
                     <span key={interest} className="px-3 py-1 bg-secondary rounded-full text-sm font-medium text-secondary-foreground">
                       {interest}
                     </span>

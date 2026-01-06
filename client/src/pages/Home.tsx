@@ -17,15 +17,15 @@ const Hero = () => (
         transition={{ duration: 0.5 }}
       >
         <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/10 text-primary font-medium text-sm">
-          👋 Welcome to my portfolio
+           Welcome to my portfolio
         </div>
         <h1 className="text-5xl md:text-7xl font-bold font-display tracking-tight mb-6">
-          Building the Future <br />
-          <span className="text-gradient">With Code</span>
+          Hi, I'm <br />
+          <span className="text-gradient">Brunda Reddy</span>
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Aspiring Computer Science Engineer with a strong foundation in Python, Java, 
-          and Full-Stack Development. I transform complex problems into elegant solutions.
+         Computer Science Student | Problem Solver | Tech Enthusiast
+Passionate about developing innovative software solutions using modern technologies, with a strong focus on learning, collaboration, and real-world impact.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/projects">
@@ -49,9 +49,9 @@ const SkillsPreview = () => {
   
   // Static icons for visual appeal
   const features = [
-    { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: "React, HTML, CSS" },
-    { icon: <Database className="w-6 h-6" />, title: "Backend", desc: "Node.js, SQL, Java" },
-    { icon: <Terminal className="w-6 h-6" />, title: "Tools", desc: "Git, Linux, Docker" },
+    { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: " HTML, CSS, Javascript" },
+    { icon: <Database className="w-6 h-6" />, title: "Backend", desc: " SQL, MySql" },
+    { icon: <Terminal className="w-6 h-6" />, title: "Tools & Concepts", desc: "Data structures, Git, Github, Replit, Notion AI" },
     { icon: <Code2 className="w-6 h-6" />, title: "Languages", desc: "Python, Java, JS" },
   ];
 
@@ -89,6 +89,29 @@ const SkillsPreview = () => {
 const FeaturedProjects = () => {
   const { data: projects, isLoading } = useProjects();
 
+  const demoProjects = [
+    {
+      id: 101,
+      title: "EasyRide",
+      description: "A responsive multi-page ride-sharing service concept.",
+    link: "https://brundareddycse.github.io/EasyRide/",
+      
+      techStack: ["React", "Tailwind"],
+      githubLink: "https://github.com/brundareddycse/EasyRide",
+      imageUrl: "/easyride2.png",
+    },
+    {
+      id: 102,
+      title: "Transaction & User Analytics",
+      description: "Financial data analysis project using SQL.",
+      link: null,
+      techStack: ["SQL", "Python"],
+    githubLink: "https://github.com/brundareddycse/Transaction-User-Behavior-Analytics",
+      
+      imageUrl: "/sql1.png",
+    },
+  ];
+
   if (isLoading) return null;
 
   return (
@@ -107,8 +130,8 @@ const FeaturedProjects = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects?.slice(0, 3).map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+          {(projects ?? demoProjects).slice(0, 3).map((project, index) => (
+            <ProjectCard key={project.id} project={project as any} index={index} />
           ))}
         </div>
         
