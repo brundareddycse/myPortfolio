@@ -13,8 +13,9 @@ export default function About() {
           {/* Header */}
           <div className="max-w-4xl mx-auto mb-20 text-center">
             <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
               className="text-4xl md:text-6xl font-bold font-display mb-6"
             >
               About Me
@@ -22,7 +23,7 @@ export default function About() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
               className="text-xl text-muted-foreground leading-relaxed"
             >
               A passionate developer, lifelong learner, and problem solver.
@@ -32,103 +33,203 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 max-w-6xl mx-auto">
             {/* Main Content */}
             <div className="md:col-span-7 space-y-12">
-              <section>
+
+              {/* Personal Story */}
+              <motion.section
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+              >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="p-2 bg-primary/10 rounded-lg text-primary"
+                  >
                     <User className="w-6 h-6" />
-                  </div>
+                  </motion.div>
                   <h2 className="text-2xl font-bold font-display">Personal Story</h2>
                 </div>
                 <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                   <p>
-                    Hello! I'm Brunda Reddy, an aspiring Computer Science Engineer with a deep passion for technology 
-                    and innovation. My journey into the world of programming began with curiosity about how things 
-                    work behind the scenes, which quickly evolved into a love for building software.
+                    Hello! I'm Brunda Reddy, an aspiring Computer Science Engineer currently pursuing my B.Tech 
+                    at Mohan Babu University with a CGPA of 9.46. I have a deep passion for technology and 
+                    innovation, and my journey into programming began with curiosity about how things work 
+                    behind the scenes — which quickly evolved into a love for building software.
                   </p>
                   <p>
-                   I am a budding developer with a strong foundation in Java, SQL, and Data Structures. I am a logic-driven problem solver passionate about building efficient systems and am always open to learning new technologies to grow my technical toolkit.
+                    I am a logic-driven problem solver with a strong foundation in Python, Java, SQL, and 
+                    Front-End Development. I enjoy building efficient systems and am always open to learning 
+                    new technologies. I'm proficient with tools like Git, GitHub, MySQL, and repl.it, and 
+                    familiar with agile methodologies — always aiming to deliver innovative solutions that 
+                    make a real impact.
                   </p>
                 </div>
-              </section>
+              </motion.section>
 
-              <section>
+              {/* Achievements */}
+              <motion.section
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="p-2 bg-primary/10 rounded-lg text-primary"
+                  >
                     <Award className="w-6 h-6" />
-                  </div>
+                  </motion.div>
                   <h2 className="text-2xl font-bold font-display">Achievements</h2>
                 </div>
                 <div className="space-y-6">
-                  <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
+
+                  {/* CSA - First */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                    className="bg-card p-6 rounded-xl border border-border shadow-sm transition-colors"
+                  >
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-bold text-lg">Code Rush 2K25 Finalist</h3>
-                      <span className="text-sm text-muted-foreground bg-secondary px-2 py-1 rounded">2025</span>
+                      <h3 className="font-bold text-lg">ServiceNow Certified System Administrator (CSA)</h3>
+                      <span className="text-sm text-muted-foreground bg-secondary px-2 py-1 rounded">Apr 2026</span>
                     </div>
-                    <p className="text-muted-foreground">Demonstrated exceptional coding skills and problem-solving abilities in a competitive environment.</p>
-                  </div>
-                  <div className="bg-card p-6 rounded-xl border border-border shadow-sm">
+                    <p className="text-muted-foreground">
+                      Earned the globally recognized ServiceNow CSA certification, validating expertise in 
+                      administering and configuring the ServiceNow platform.
+                    </p>
+                  </motion.div>
+
+                  {/* Code Rush */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                    className="bg-card p-6 rounded-xl border border-border shadow-sm transition-colors"
+                  >
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="font-bold text-lg">JP Morgan Chase Virtual Experience</h3>
-                      <span className="text-sm text-muted-foreground bg-secondary px-2 py-1 rounded">2024</span>
+                      <h3 className="font-bold text-lg">Code Rush 2K25 Hackathon Finalist</h3>
+                      <span className="text-sm text-muted-foreground bg-secondary px-2 py-1 rounded">Sept 2025</span>
                     </div>
-                    <p className="text-muted-foreground">Gained practical insights into financial technology and enterprise software development practices.</p>
-                  </div>
+                    <p className="text-muted-foreground">
+                      Selected among Top 20 Teams out of 100 at Mohan Babu University for developing a 
+                      Smart Transport System in the domain of Web Development.
+                    </p>
+                  </motion.div>
+
+                  {/* JP Morgan */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    whileHover={{ y: -4, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                    className="bg-card p-6 rounded-xl border border-border shadow-sm transition-colors"
+                  >
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="font-bold text-lg">JP Morgan Chase – Advanced Software Engineering</h3>
+                      <span className="text-sm text-muted-foreground bg-secondary px-2 py-1 rounded">Oct 2025</span>
+                    </div>
+                    <p className="text-muted-foreground">
+                      Completed a 5-hour virtual simulation involving Java Spring, H2 database, Kafka streaming, 
+                      and REST API integration via Forage.
+                    </p>
+                  </motion.div>
+
                 </div>
-              </section>
+              </motion.section>
             </div>
 
-            {/* Sidebar / Timeline */}
+            {/* Sidebar */}
             <div className="md:col-span-5 space-y-12">
-              <section>
+
+              {/* Education */}
+              <motion.section
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+              >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="p-2 bg-primary/10 rounded-lg text-primary"
+                  >
                     <GraduationCap className="w-6 h-6" />
-                  </div>
+                  </motion.div>
                   <h2 className="text-2xl font-bold font-display">Education</h2>
                 </div>
                 
                 <div className="relative border-l-2 border-border ml-3 space-y-10 pl-8 py-2">
-                  <div className="relative">
-                    <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-background bg-primary" />
-                    <h3 className="font-bold text-lg">B.Tech in Computer Science</h3>
-                    <p className="text-primary font-medium mb-1">MBU • 9.46 CGPA</p>
-                    <p className="text-sm text-muted-foreground">Current</p>
-                  </div>
-                  
-                  <div className="relative">
-                    <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-background bg-muted-foreground" />
-                    <h3 className="font-bold text-lg">Intermediate Education</h3>
-                    <p className="text-primary font-medium mb-1">Sri Chaitanya • 95.2%</p>
-                    <p className="text-sm text-muted-foreground">Completed</p>
-                  </div>
-
-                  <div className="relative">
-                    <span className="absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-background bg-muted-foreground" />
-                    <h3 className="font-bold text-lg">Secondary Education</h3>
-                    <p className="text-primary font-medium mb-1">Sri Chaitanya • 10 GPA</p>
-                    <p className="text-sm text-muted-foreground">Completed</p>
-                  </div>
+                  {[
+                    {
+                      title: "B.Tech in Computer Science & Engineering",
+                      institution: "Mohan Babu University • 9.46 CGPA",
+                      year: "2023 – Present",
+                      active: true,
+                    },
+                    {
+                      title: "Intermediate (MPC)",
+                      institution: "Sri Chaitanya Junior College • 95.2%",
+                      year: "2021 – 2023",
+                      active: false,
+                    },
+                    {
+                      title: "Secondary Education (10th)",
+                      institution: "Sri Chaitanya High School • 10 CGPA",
+                      year: "Completed 2021",
+                      active: false,
+                    },
+                  ].map((edu, index) => (
+                    <motion.div
+                      key={edu.title}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.5 + index * 0.15 }}
+                      className="relative"
+                    >
+                      <span className={`absolute -left-[39px] top-1 h-5 w-5 rounded-full border-4 border-background ${edu.active ? "bg-primary" : "bg-muted-foreground"}`} />
+                      <h3 className="font-bold text-lg">{edu.title}</h3>
+                      <p className="text-primary font-medium mb-1">{edu.institution}</p>
+                      <p className="text-sm text-muted-foreground">{edu.year}</p>
+                    </motion.div>
+                  ))}
                 </div>
-              </section>
+              </motion.section>
 
-              <section>
+              {/* Interests */}
+              <motion.section
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+              >
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className="p-2 bg-primary/10 rounded-lg text-primary"
+                  >
                     <BookOpen className="w-6 h-6" />
-                  </div>
+                  </motion.div>
                   <h2 className="text-2xl font-bold font-display">Interests</h2>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["Web Development", "Data Analysis", "Artificial Intelligence", "System Design", "Open Source"].map(interest => (
-                    <span key={interest} className="px-3 py-1 bg-secondary rounded-full text-sm font-medium text-secondary-foreground">
+                  {["Web Development", "Data Analysis", "Artificial Intelligence", "Cloud Computing", "System Design", "Open Source"].map((interest, index) => (
+                    <motion.span
+                      key={interest}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.7 + index * 0.08 }}
+                      whileHover={{ scale: 1.08 }}
+                      className="px-3 py-1 bg-secondary rounded-full text-sm font-medium text-secondary-foreground cursor-default"
+                    >
                       {interest}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-              </section>
+              </motion.section>
+
             </div>
           </div>
-
         </div>
       </main>
       <Footer />
