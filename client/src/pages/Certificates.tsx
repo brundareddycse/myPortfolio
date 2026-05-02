@@ -90,7 +90,7 @@ const localCertificates = [
   issuer: "Anthropic",
   date: "2026",
   link: "/anthropic.pdf",
-  imageUrl: "/anthropic-cert.png",
+  imageUrl: "https://aragonresearch.com/wp-content/uploads/2025/11/1965614-anthropic-announces-enhancements-to-claude-ai-models.webp",
 },
   {
     id: 6,
