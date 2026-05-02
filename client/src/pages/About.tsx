@@ -55,9 +55,7 @@ export default function About() {
                 <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                   <p>
                     Hello! I'm Brunda Reddy, an aspiring Computer Science Engineer currently pursuing my B.Tech
-                    at Mohan Babu University with a CGPA of 9.46. I have a deep passion for technology and
-                    innovation, and my journey into programming began with curiosity about how things work
-                    behind the scenes — which quickly evolved into a love for building software.
+                    at Mohan Babu University with a CGPA of 9.32.
                   </p>
                   <p>
                     I am a logic-driven problem solver with a strong foundation in Python, Java, SQL, and
