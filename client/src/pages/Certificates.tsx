@@ -56,7 +56,7 @@ const localCertificates = [
   issuer: "ServiceNow",
   date: "Apr 2026",
   link: "/servicenow-csa.pdf",
-  imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/ServiceNow_logo.svg/2560px-ServiceNow_logo.svg.png",
+  imageUrl: "https://images.credly.com/size/680x680/images/cf2fd311-58c5-404e-b2aa-234b2ef7f994/Credential_Badge_-_Certified_System_Administrator.png",
 },
   {
     id: 2,
