@@ -64,7 +64,7 @@ const localCertificates = [
     issuer: "Hack2Skill",
     date: "Dec 2025",
     link: "https://certificate.hack2skill.com/user/genai2completion1/2025H2S10GENAI-C100135",
-    imageUrl: "https://s3-h2s-v2.s3.ap-south-1.amazonaws.com/2022-04-14T12%3A22%3A27.833Z-RyWgduZR_400x400.jpg", // Make sure this is in your public folder
+    imageUrl: "/genai.png", // Make sure this is in your public folder
   },
   {
     id: 4,
