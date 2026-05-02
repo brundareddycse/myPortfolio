@@ -83,14 +83,15 @@ const localCertificates = [
     link: "/oracleai.pdf",
     imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Oracle_Logo.svg/1280px-Oracle_Logo.svg.png",
   },
-  {
-    id: 5,
-    title: "AWS Student Community Day – Tirupati 2025 (Participation)",
-    issuer: "AWS Cloud Club Mohan Babu University",
-    date: "2025",
-    link: "/aws.pdf",
-    imageUrl: "https://media.licdn.com/dms/image/v2/D4D12AQGqe_XwQ_Qmtw/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1686370763629?e=2147483647&v=beta&t=mNRhLLq9f0Xng5LCO_CIku4f6O2QVuNQlQOJZvPHZhQ",
-  },
+  
+    {
+  id: 5,
+  title: "AI Fluency: Framework & Foundations",
+  issuer: "Anthropic",
+  date: "2026",
+  link: "/anthropic.pdf",
+  imageUrl: "/anthropic-cert.png",
+},
   {
     id: 6,
     title: "Introduction To Front End Development",
