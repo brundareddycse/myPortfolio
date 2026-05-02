@@ -72,7 +72,7 @@ const localCertificates = [
     issuer: "Forage",
     date: "Oct 2025",
     link: "https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/E6McHJDKsQYh79moz_Sj7temL583QAYpHXD_68eca6eb11e4527acf52b6cd_1760641074935_completion_certificate.pdf",
-    imageUrl: "https://www.wpunj.edu/dA/0e455dd196/30659_Website_Blocks_2.rev.1722361639.png?language_id=1",
+    imageUrl: "/forage.png",
   },
 
   {
