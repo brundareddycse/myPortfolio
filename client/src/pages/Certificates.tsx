@@ -56,7 +56,7 @@ const localCertificates = [
   issuer: "ServiceNow",
   date: "Apr 2026",
   link: "/servicenow-csa.pdf",
-  imageUrl: "https://images.credly.com/size/680x680/images/cf2fd311-58c5-404e-b2aa-234b2ef7f994/Credential_Badge_-_Certified_System_Administrator.png",
+  imageUrl: "https://scontent.ftir6-1.fna.fbcdn.net/v/t39.30808-6/272186583_10161055474847573_8546211691609073158_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=Fmf1z-SJcfsQ7kNvwFGXjv4&_nc_oc=AdoItZoenHaq8Yp5T6a1MTO_JLKxo_kQYWASAh5duTo4gBtoR8Cz8T3KynrjxVjirjw&_nc_zt=23&_nc_ht=scontent.ftir6-1.fna&_nc_gid=csyFKQqVUKuzjIywcmE74w&_nc_ss=7b2a8&oh=00_Af5C3T_E6I3i2HngVKGeiKrC9ks8XjXlNHIoINMOelw53Q&oe=69FB91D6",
 },
   {
     id: 2,
