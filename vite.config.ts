@@ -14,7 +14,10 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist", // Changed from "../dist" to just "dist"
+    outDir: "dist",
     emptyOutDir: true,
+  },
+  server: {
+    historyApiFallback: true,
   },
 });
