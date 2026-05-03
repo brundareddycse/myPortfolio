@@ -38,7 +38,7 @@ const localProjects = [
     description: "Built just for fun — a fan website for Stranger Things with a nostalgic 80s feel. Because why not.",
     link: "https://strangerthings033.lovable.app/",
     techStack: [],
-    githubLink: "https://github.com/brundareddycse",
+    githubLink: "https://github.com/brundareddycse/strangerthings033",
     imageUrl: "/strangerthings.png",
   },
 ];
