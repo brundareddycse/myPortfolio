@@ -81,7 +81,7 @@ const localCertificates = [
     issuer: "Oracle",
     date: "Oct 2025",
     link: "/oracleai.pdf",
-    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Oracle_Logo.svg/1280px-Oracle_Logo.svg.png",
+    imageUrl: "https://download.logo.wine/logo/Oracle_Corporation/Oracle_Corporation-Logo.wine.png",
   },
   
     {
