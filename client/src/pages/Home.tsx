@@ -43,24 +43,24 @@ Passionate about developing innovative software solutions using modern technolog
   </section>
 );
 
-const SkillsPreview = () => {
-  const { data: skills } = useSkills();
+// const SkillsPreview = () => {
+//   const { data: skills } = useSkills();
   
-  // Static icons for visual appeal
-  const features = [
-    { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: " HTML, CSS, Javascript" },
-    { icon: <Database className="w-6 h-6" />, title: "Backend", desc: " SQL, MySql" },
-    { icon: <Terminal className="w-6 h-6" />, title: "Tools & Concepts", desc: "Data structures, Git, Github, Replit, Notion AI" },
-    { icon: <Code2 className="w-6 h-6" />, title: "Languages", desc: "Python, Java, JS" },
-  ];
+//   // Static icons for visual appeal
+//   const features = [
+//     { icon: <Layout className="w-6 h-6" />, title: "Frontend", desc: " HTML, CSS, Javascript" },
+//     { icon: <Database className="w-6 h-6" />, title: "Backend", desc: " SQL, MySql" },
+//     { icon: <Terminal className="w-6 h-6" />, title: "Tools & Concepts", desc: "Data structures, Git, Github, Replit, Notion AI" },
+//     { icon: <Code2 className="w-6 h-6" />, title: "Languages", desc: "Python, Java, JS" },
+//   ];
 
-  return (
-    <section className="py-20 bg-muted/30 border-y border-border/50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold font-display mb-4">Technical Expertise</h2>
-          <p className="text-muted-foreground">A snapshot of my technical toolkit</p>
-        </div>
+//   return (
+//     <section className="py-20 bg-muted/30 border-y border-border/50">
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mb-16">
+//           <h2 className="text-3xl font-bold font-display mb-4">Technical Expertise</h2>
+//           <p className="text-muted-foreground">A snapshot of my technical toolkit</p>
+//         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, i) => (
