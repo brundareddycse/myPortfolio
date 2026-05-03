@@ -10,7 +10,6 @@ export default function Contact() {
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
