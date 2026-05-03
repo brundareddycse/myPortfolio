@@ -50,9 +50,11 @@ export default function About() {
                 <div className="prose prose-lg dark:prose-invert text-muted-foreground">
                   <p>
                     Hello! I'm Brunda Reddy, an aspiring Computer Science Engineer currently pursuing my B.Tech
-                    at Mohan Babu University with a CGPA of 9.32.
-                    <p>
-                    </p>
+                    at Mohan Babu University with a CGPA of 9.32. I have a deep passion for technology and
+                    innovation, and my journey into programming began with curiosity about how things work
+                    behind the scenes — which quickly evolved into a love for building software.
+                  </p>
+                  <p>
                     I am a logic-driven problem solver with a strong foundation in Python, Java, SQL, and
                     Front-End Development. I enjoy building efficient systems and am always open to learning
                     new technologies. I'm proficient with tools like Git, GitHub, MySQL, and Firebase, and
@@ -86,7 +88,11 @@ export default function About() {
                       date: "Sept 2025",
                       desc: "Selected among Top 20 Teams out of 100 at Mohan Babu University for developing a Smart Transport System in the domain of Web Development.",
                     },
-                    
+                    {
+                      title: "JP Morgan Chase – Advanced Software Engineering",
+                      date: "Oct 2025",
+                      desc: "Completed a 5-hour virtual simulation involving Java Spring, H2 database, Kafka streaming, and REST API integration via Forage.",
+                    },
                   ].map((item, index) => (
                     <motion.div
                       key={item.title}
@@ -128,7 +134,7 @@ export default function About() {
                     {
                       title: "B.Tech in Computer Science & Engineering",
                       institution: "Mohan Babu University",
-                      grade: "9.46 CGPA",
+                      grade: "9.32 CGPA",
                       year: "2023 – Present",
                       active: true,
                     },
@@ -184,7 +190,7 @@ export default function About() {
                   <h2 className="text-2xl font-bold font-display">Interests</h2>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {[ "Data Analysis", "Artificial Intelligence", "Machine Learning", "Data Engineering"].map((interest, index) => (
+                  {["Web Development", "Data Analysis", "Artificial Intelligence", "Cloud Computing", "System Design", "Open Source"].map((interest, index) => (
                     <motion.span
                       key={interest}
                       initial={{ opacity: 0, scale: 0.8 }}
