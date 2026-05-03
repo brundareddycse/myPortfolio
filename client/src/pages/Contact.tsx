@@ -34,12 +34,7 @@ export default function Contact() {
                     <Mail className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">Email</h3>
-                  
-                    href="mailto:ybrundareddy2006@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm break-all"
-                  >
-                    ybrundareddy2006@gmail.com
-                  </a>
+                  <a href="mailto:ybrundareddy2006@gmail.com" className="text-muted-foreground hover:text-primary transition-colors text-sm break-all">ybrundareddy2006@gmail.com</a>
                 </motion.div>
 
                 <motion.div
@@ -53,14 +48,7 @@ export default function Contact() {
                     <Linkedin className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">LinkedIn</h3>
-                  
-                    href="https://www.linkedin.com/in/brundareddy/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                  >
-                    linkedin.com/in/brundareddy
-                  </a>
+                  <a href="https://www.linkedin.com/in/brundareddy/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors text-sm">linkedin.com/in/brundareddy</a>
                 </motion.div>
 
                 <motion.div
@@ -74,9 +62,7 @@ export default function Contact() {
                     <MapPin className="w-8 h-8" />
                   </div>
                   <h3 className="font-bold text-xl mb-2">Location</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Tirupati, India
-                  </p>
+                  <p className="text-muted-foreground text-sm">Tirupati, India</p>
                 </motion.div>
 
               </div>
