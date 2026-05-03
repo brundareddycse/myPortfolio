@@ -23,7 +23,7 @@ const Hero = () => (
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
           Computer Science Student | Problem Solver | Tech Enthusiast.
-          Passionate about developing innovative software solutions using modern technologies, 
+          Passionate about developing innovative software solutions using modern technologies,
           with a strong focus on learning, collaboration, and real-world impact.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -43,15 +43,41 @@ const Hero = () => (
   </section>
 );
 
+const Stats = () => (
+  <section className="py-12 border-y border-border/50 bg-muted/20">
+    <div className="container mx-auto px-4">
+      <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+        {[
+          { value: "9.32", label: "CGPA" },
+          { value: "3+", label: "Projects" },
+          { value: "7+", label: "Certifications" },
+          { value: "2+", label: "Hackathons" },
+        ].map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 + index * 0.1 }}
+            className="text-center"
+          >
+            <p className="text-4xl font-bold text-primary font-display">{stat.value}</p>
+            <p className="text-sm text-muted-foreground mt-1 font-medium">{stat.label}</p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 const CTA = () => (
   <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
     <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
     <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
-    
+
     <div className="container mx-auto px-4 text-center relative z-10">
       <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">Ready to work together?</h2>
       <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-10 text-lg">
-        I'm currently looking for internships and entry-level opportunities. 
+        I'm currently looking for internships and entry-level opportunities.
         Let's build something amazing.
       </p>
       <Link href="/contact">
@@ -69,6 +95,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
+        <Stats />
         <CTA />
       </main>
       <Footer />
