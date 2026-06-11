@@ -1,9 +1,35 @@
+import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Mail, MapPin, Linkedin, Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    try {
+      const res = await fetch("https://formspree.io/f/maqzpydw", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setStatus("sent");
+        form.reset();
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -74,7 +100,7 @@ export default function Contact() {
                 className="bg-card rounded-3xl border border-border shadow-lg p-8 text-left"
               >
                 <h2 className="text-2xl font-bold font-display mb-6 text-center">Send a Message</h2>
-                <form action="https://formspree.io/f/maqzpydw" method="POST" className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
                     <label className="block text-sm font-medium mb-2">Your Name</label>
                     <input
@@ -105,12 +131,25 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-xl bg-background border border-border focus:outline-none focus:ring-2 focus:ring-primary transition text-sm resize-none"
                     />
                   </div>
+
+                  {status === "sent" && (
+                    <div className="flex items-center gap-2 bg-green-500/10 text-green-600 border border-green-500/20 rounded-xl px-4 py-3 text-sm font-medium">
+                      Message sent! I'll get back to you soon.
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="flex items-center gap-2 bg-red-500/10 text-red-600 border border-red-500/20 rounded-xl px-4 py-3 text-sm font-medium">
+                      ❌ Something went wrong. Please try again.
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition"
+                    disabled={status === "sending"}
+                    className="w-full flex items-center justify-center gap-2 bg-primary text-primary-foreground font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition disabled:opacity-60"
                   >
                     <Send className="w-4 h-4" />
-                    Send Message
+                    {status === "sending" ? "Sending..." : "Send Message"}
                   </button>
                 </form>
               </motion.div>
