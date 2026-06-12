@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { Badge } from "../components/ui/badge"; // Adjusted to standard relative pathing
+import { Badge } from "@/components/ui/badge"; // Using global alias shortcut paths configured in tsconfig
 
 interface CertificateCardProps {
   certificate: any;
