@@ -1,102 +1,106 @@
 import { Link, useLocation } from "wouter";
-import { motion } from "framer-motion";
-import { Menu, X, Code2 } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import styled from "styled-components";
+import {
+  Home,
+  User,
+  FolderGit2,
+  Award,
+  Mail,
+} from "lucide-react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/certificates", label: "Certificates" }, // Add this line
-  { href: "/contact", label: "Contact" },
+  { href: "/", label: "Home", icon: Home },
+  { href: "/about", label: "About", icon: User },
+  { href: "/projects", label: "Projects", icon: FolderGit2 },
+  { href: "/certificates", label: "Certificates", icon: Award },
+  { href: "/contact", label: "Contact", icon: Mail },
 ];
 
 export function Navigation() {
   const [location] = useLocation();
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-display font-bold text-xl hover:opacity-80 transition-opacity">
-            <div className="bg-primary/10 p-2 rounded-lg">
-              <Code2 className="w-6 h-6 text-primary" />
-            </div>
-            <span>Brunda<span className="text-primary">.dev</span></span>
-          </Link>
+    <Wrapper>
+      <nav className="menu">
+        {links.map((link) => {
+          const Icon = link.icon;
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {links.map((link) => {
-              const isActive = location === link.href;
-              return (
-                <Link key={link.href} href={link.href}>
-                  <div className={`
-                    relative px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer
-                    ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}
-                  `}>
-                    {link.label}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 bg-primary/10 rounded-full -z-10"
-                        transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                      />
-                    )}
-                  </div>
-                </Link>
-              );
-            })}
-            <Button variant="default" className="ml-4 rounded-full px-6" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                Resume
-              </a>
-            </Button>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Nav */}
-      <motion.div 
-        initial={false}
-        animate={isOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-        className="md:hidden overflow-hidden bg-background border-b border-border"
-      >
-        <nav className="flex flex-col p-4 space-y-2">
-          {links.map((link) => (
+          return (
             <Link key={link.href} href={link.href}>
-              <div 
-                onClick={() => setIsOpen(false)}
-                className={`
-                  block px-4 py-3 rounded-lg text-base font-medium cursor-pointer
-                  ${location === link.href 
-                    ? 'bg-primary/10 text-primary' 
-                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'}
-                `}
-              >
-                {link.label}
-              </div>
-            </Link>
-          ))}
-          <div className="pt-2">
-            <Button className="w-full justify-center" asChild>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                Download Resume
+              <a className={location === link.href ? "active" : ""}>
+                <Icon size={22} />
+                <span>{link.label}</span>
               </a>
-            </Button>
-          </div>
-        </nav>
-      </motion.div>
-    </header>
+            </Link>
+          );
+        })}
+      </nav>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  .menu {
+    width: calc(100vw - 24px);
+    max-width: 700px;
+    backdrop-filter: blur(12px) saturate(180%) contrast(200%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%) contrast(200%);
+    background: rgba(59, 130, 246, 0.25);
+    border: 1px solid rgba(255,255,255,.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    padding: 8px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .menu a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    color: rgba(255,255,255,.85);
+    text-decoration: none;
+    padding: 10px 6px;
+    border-radius: 999px;
+    transition: all .3s ease;
+    cursor: pointer;
+  }
+
+  .menu a:hover {
+    background: rgba(255,255,255,.25);
+    color: #fff;
+    transform: translateY(-2px);
+  }
+
+  .menu a.active {
+    background: rgba(255,255,255,.4);
+    color: #2563eb;
+  }
+
+  .menu svg {
+    margin-bottom: 4px;
+  }
+
+  .menu span {
+    font-size: .75rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 640px) {
+    .menu span {
+      font-size: .65rem;
+    }
+
+    .menu {
+      gap: 4px;
+    }
+  }
+`;
