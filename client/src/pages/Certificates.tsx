@@ -57,6 +57,7 @@ const localCertificates = [
   date: "Apr 2026",
   link: "/servicenow-csa.pdf",
   imageUrl: "/csa.png",
+  imageStyle: { paddingTop: "12px" }
 },
   {
     id: 2,
