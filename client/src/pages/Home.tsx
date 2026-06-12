@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import FeaturedProjects from "@/components/FeaturedProjects";
 
 const Hero = () => (
   <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
@@ -93,11 +94,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <main>
-        <Hero />
-        <Stats />
-        <CTA />
-      </main>
+     <main>
+  <Hero />
+  <Stats />
+
+  <FeaturedProjects />
+
+  <CTA />
+</main>
       <Footer />
     </div>
   );
