@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Certification } from "@shared/schema";
-import { ExternalLink, Award } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
-export function CertificateCard({ certificate, index }: { certificate: Certification | any; index: number }) {
+interface CertificateCardProps {
+  certificate: any; // Bypasses strict tsc build blocking if schema definitions mismatch
+  index: number;
+}
+
+export function CertificateCard({ certificate, index }: CertificateCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -15,14 +19,14 @@ export function CertificateCard({ certificate, index }: { certificate: Certifica
     >
       <StyledWrapper>
         <div className="card">
-          {/* Default State: Show Image icon with rotation transitions */}
+          {/* Default State: Decorative Background SVG Icon */}
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z" />
           </svg>
           
-          {/* Hover State: Revealed Content Container */}
+          {/* Hover State: Fades & Rotates into position */}
           <div className="card__content">
-            <h3 className="card__title truncate-title">{certificate.title}</h3>
+            <h3 className="card__title">{certificate.title}</h3>
             
             <p className="card__issuer">
               <span className="font-semibold">{certificate.issuer}</span>
@@ -93,7 +97,7 @@ const StyledWrapper = styled.div`
     padding: 24px;
     box-sizing: border-box;
     background-color: var(--background, #fff);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border, rgba(0,0,0,0.1));
     border-radius: 12px;
     opacity: 0;
     display: flex;
