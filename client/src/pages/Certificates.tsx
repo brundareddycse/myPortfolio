@@ -52,15 +52,24 @@ import { Card, CardContent } from "@/components/ui/card";
 const localCertificates = [
   {
   id: 1,
+  title: "ServiceNow Certified Application Developer (CAD) ",
+  issuer: "ServiceNow",
+  date: "Apr 2026",
+  link: "/servicenow CAD.pdf",
+  imageUrl: "/cad.png",
+  
+},
+   {
+  id: 2,
   title: "ServiceNow Certified System Administrator (CSA)",
   issuer: "ServiceNow",
   date: "Apr 2026",
   link: "/servicenow-csa.pdf",
   imageUrl: "/csa.png",
-  imageStyle: { paddingTop: "12px" }
+  
 },
   {
-    id: 2,
+    id: 3,
     title: "Gen AI Academy 2.0",
     issuer: "Hack2Skill",
     date: "Dec 2025",
@@ -77,7 +86,7 @@ const localCertificates = [
   },
 
   {
-    id: 3,
+    id: 5,
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle",
     date: "Oct 2025",
@@ -86,7 +95,7 @@ const localCertificates = [
   },
   
     {
-  id: 5,
+  id: 6,
   title: "AI Fluency: Framework & Foundations",
   issuer: "Anthropic",
   date: "2026",
@@ -94,7 +103,7 @@ const localCertificates = [
   imageUrl: "https://aragonresearch.com/wp-content/uploads/2025/11/1965614-anthropic-announces-enhancements-to-claude-ai-models.webp",
 },
   {
-    id: 6,
+    id: 7,
     title: "Introduction To Front End Development",
     issuer: "SimpliLearn | Skillup",
     date: "June 2025",
@@ -102,7 +111,7 @@ const localCertificates = [
     imageUrl: "data:image/png;base64,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",
   },
   {
-    id: 7,
+    id: 8,
     title: "Code Rush 2K25 Hackathon – Certificate of Participation",
     issuer: "FACE Prep Campus",
     date: "Sept 2025",
