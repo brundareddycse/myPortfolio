@@ -3,12 +3,9 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/myPortfolio/",
-
+  base: "/",
   root: path.resolve(__dirname, "client"),
-
   plugins: [react()],
-
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client/src"),
@@ -16,13 +13,11 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
-
   build: {
-    outDir: path.resolve(__dirname, "dist"),
+    outDir: "dist",
     emptyOutDir: true,
   },
-
   server: {
-    port: 5173,
+    historyApiFallback: true,
   },
 });
