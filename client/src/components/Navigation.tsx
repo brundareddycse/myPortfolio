@@ -1,64 +1,140 @@
 import { Link, useLocation } from "wouter";
-import {
-  Home,
-  User,
-  FolderGit2,
-  Award,
-  Mail,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { Menu, X, Code2 } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const links = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/about", label: "About", icon: User },
-  { href: "/projects", label: "Projects", icon: FolderGit2 },
-  { href: "/certificates", label: "Certificates", icon: Award },
-  { href: "/contact", label: "Contact", icon: Mail },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/certificates", label: "Certificates" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navigation() {
   const [location] = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-20px)] max-w-4xl">
-      <nav
-        className="
-          flex items-center justify-center gap-2
-          rounded-full
-          border border-white/20
-          bg-primary/20
-          backdrop-blur-xl
-          px-2 py-2
-          shadow-xl
-        "
-      >
-        {links.map((link) => {
-          const Icon = link.icon;
-          const isActive = location === link.href;
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/">
+            <div className="flex items-center gap-2 font-display font-bold text-xl hover:opacity-80 transition-opacity cursor-pointer">
+              <div className="bg-primary/10 p-2 rounded-lg">
+                <Code2 className="w-6 h-6 text-primary" />
+              </div>
+              <span>
+                Brunda<span className="text-primary">.dev</span>
+              </span>
+            </div>
+          </Link>
 
-          return (
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1">
+            {links.map((link) => {
+              const isActive = location === link.href;
+
+              return (
+                <Link key={link.href} href={link.href}>
+                  <div
+                    className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${
+                      isActive
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    {link.label}
+
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-primary/10 rounded-full -z-10"
+                        transition={{
+                          type: "spring",
+                          bounce: 0.2,
+                          duration: 0.6,
+                        }}
+                      />
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+
+            <Button
+              variant="default"
+              className="ml-4 rounded-full px-6"
+              asChild
+            >
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Nav */}
+      <motion.div
+        initial={false}
+        animate={
+          isOpen
+            ? { height: "auto", opacity: 1 }
+            : { height: 0, opacity: 0 }
+        }
+        className="md:hidden overflow-hidden bg-background border-b border-border"
+      >
+        <nav className="flex flex-col p-4 space-y-2">
+          {links.map((link) => (
             <Link key={link.href} href={link.href}>
               <div
-                className={`
-                  flex flex-1 min-w-0 cursor-pointer
-                  flex-col items-center justify-center
-                  rounded-full px-4 py-2
-                  transition-all duration-300
-                  ${
-                    isActive
-                      ? "bg-white/40 text-primary"
-                      : "text-foreground/80 hover:bg-white/20 hover:text-primary"
-                  }
-                `}
+                onClick={() => setIsOpen(false)}
+                className={`block px-4 py-3 rounded-lg text-base font-medium cursor-pointer ${
+                  location === link.href
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                }`}
               >
-                <Icon size={20} />
-                <span className="mt-1 text-xs font-medium">
-                  {link.label}
-                </span>
+                {link.label}
               </div>
             </Link>
-          );
-        })}
-      </nav>
-    </div>
+          ))}
+
+          <div className="pt-2">
+            <Button className="w-full justify-center" asChild>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Download Resume
+              </a>
+            </Button>
+          </div>
+        </nav>
+      </motion.div>
+    </header>
   );
 }
