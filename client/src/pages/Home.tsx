@@ -98,7 +98,7 @@ export default function Home() {
   <Hero />
   <Stats />
 
-  <FeaturedProjects />
+
 
   <CTA />
 </main>
