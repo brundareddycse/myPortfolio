@@ -1,5 +1,4 @@
 import { Link, useLocation } from "wouter";
-import styled from "styled-components";
 import {
   Home,
   User,
@@ -20,87 +19,46 @@ export function Navigation() {
   const [location] = useLocation();
 
   return (
-    <Wrapper>
-      <nav className="menu">
+    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-20px)] max-w-4xl">
+      <nav
+        className="
+          flex items-center justify-center gap-2
+          rounded-full
+          border border-white/20
+          bg-primary/20
+          backdrop-blur-xl
+          px-2 py-2
+          shadow-xl
+        "
+      >
         {links.map((link) => {
           const Icon = link.icon;
+          const isActive = location === link.href;
 
           return (
             <Link key={link.href} href={link.href}>
-              <a className={location === link.href ? "active" : ""}>
-                <Icon size={22} />
-                <span>{link.label}</span>
-              </a>
+              <div
+                className={`
+                  flex flex-1 min-w-0 cursor-pointer
+                  flex-col items-center justify-center
+                  rounded-full px-4 py-2
+                  transition-all duration-300
+                  ${
+                    isActive
+                      ? "bg-white/40 text-primary"
+                      : "text-foreground/80 hover:bg-white/20 hover:text-primary"
+                  }
+                `}
+              >
+                <Icon size={20} />
+                <span className="mt-1 text-xs font-medium">
+                  {link.label}
+                </span>
+              </div>
             </Link>
           );
         })}
       </nav>
-    </Wrapper>
+    </div>
   );
 }
-
-const Wrapper = styled.div`
-  position: fixed;
-  left: 50%;
-  bottom: 20px;
-  transform: translateX(-50%);
-  z-index: 999;
-
-  .menu {
-    width: calc(100vw - 24px);
-    max-width: 700px;
-    backdrop-filter: blur(12px) saturate(180%) contrast(200%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%) contrast(200%);
-    background: rgba(59, 130, 246, 0.25);
-    border: 1px solid rgba(255,255,255,.2);
-    box-shadow: 0 10px 30px rgba(0,0,0,.15);
-    padding: 8px;
-    border-radius: 999px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .menu a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-    color: rgba(255,255,255,.85);
-    text-decoration: none;
-    padding: 10px 6px;
-    border-radius: 999px;
-    transition: all .3s ease;
-    cursor: pointer;
-  }
-
-  .menu a:hover {
-    background: rgba(255,255,255,.25);
-    color: #fff;
-    transform: translateY(-2px);
-  }
-
-  .menu a.active {
-    background: rgba(255,255,255,.4);
-    color: #2563eb;
-  }
-
-  .menu svg {
-    margin-bottom: 4px;
-  }
-
-  .menu span {
-    font-size: .75rem;
-    font-weight: 600;
-  }
-
-  @media (max-width: 640px) {
-    .menu span {
-      font-size: .65rem;
-    }
-
-    .menu {
-      gap: 4px;
-    }
-  }
-`;
