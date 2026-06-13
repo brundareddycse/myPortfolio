@@ -70,7 +70,7 @@ export function Navigation() {
               asChild
             >
               <a
-                href="/resume.pdf"
+                href="/resumeats.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
