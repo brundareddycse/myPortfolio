@@ -41,7 +41,7 @@ export default function Resume() {
             
             {/* You can link this to your PDF in the public folder */}
             <a 
-              href="/your-resume-file.pdf" 
+              href="/resumeats.pdf" 
               target="_blank" 
               className="inline-block bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition"
             >
