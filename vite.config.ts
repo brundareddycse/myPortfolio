@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  base: "/",
   root: path.resolve(__dirname, "client"),
   plugins: [react()],
   resolve: {
@@ -14,10 +13,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: "dist",
+    outDir: path.resolve(__dirname, "client/dist"),
     emptyOutDir: true,
-  },
-  server: {
-    historyApiFallback: true,
-  },
+  }
 });
