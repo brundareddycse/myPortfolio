@@ -28,5 +28,3 @@ A modern, responsive portfolio website built with React, Tailwind CSS, and Expre
   - Primary: `hsl(222, 47%, 11%)`
   - Accent: `hsl(262, 80%, 50%)`
 
-## Deployment
-Ready to deploy on Replit, Vercel, or Netlify.
