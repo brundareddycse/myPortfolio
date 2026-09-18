@@ -6,36 +6,50 @@ import { motion } from "framer-motion";
 
 const localProjects = [
   {
-  id: 1,
-  title: "AI Startup Idea Validator",
-  description: "AI-powered startup idea validation platform using multi-agent intelligence for market research, competitor analysis, TAM/SAM/SOM sizing, SWOT risk evaluation, MVP recommendations and go-to-market strategy.",
-  link: "https://ai-startup-idea-validator-lac.vercel.app/",
- 
-  githubLink: "https://github.com/mankurshirisha/AI-startup-idea-validator",
-  imageUrl: "/beforebeta.png",
-},
+    id: 1,
+    title: "AI Startup Idea Validator",
+    description:
+      "AI-powered startup idea validation platform using multi-agent intelligence for market research, competitor analysis, TAM/SAM/SOM sizing, SWOT risk evaluation, MVP recommendations and go-to-market strategy.",
+    link: "https://ai-startup-idea-validator-lac.vercel.app/",
+    techStack: [
+      "React",
+      "Vite",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "Gemini",
+      "Tavily",
+    ],
+    githubLink:
+      "https://github.com/mankurshirisha/AI-startup-idea-validator",
+    imageUrl: "/beforebeta.png",
+  },
   {
     id: 2,
     title: "EasyRide",
-    description: "A responsive multi-page ride-sharing service concept built with HTML, CSS and JavaScript.",
+    description:
+      "A responsive multi-page ride-sharing service concept built with HTML, CSS and JavaScript.",
     link: "https://kadimisettijaswanth.github.io/coderush2k25/",
-    techStack: [], 
+    techStack: [],
     githubLink: "https://github.com/brundareddycse/EasyRide",
     imageUrl: "/easyride2.png",
   },
   {
     id: 3,
     title: "Transaction & User Analytics",
-    description: "Financial data analysis project using SQL — designing schemas, analyzing trends and building views for performance monitoring.",
+    description:
+      "Financial data analysis project using SQL — designing schemas, analyzing trends and building views for performance monitoring.",
     link: null,
     techStack: [],
-    githubLink: "https://github.com/brundareddycse/Transaction-User-Behavior-Analytics",
+    githubLink:
+      "https://github.com/brundareddycse/Transaction-User-Behavior-Analytics",
     imageUrl: "/sql1.png",
   },
   {
     id: 4,
     title: "MediSafe — Work in Progress",
-    description: "A healthcare support web app for managing medical assistance and safety. Currently under active development — more features coming soon!",
+    description:
+      "A healthcare support web app for managing medical assistance and safety. Currently under active development — more features coming soon!",
     link: "https://medisafe-sahayak.lovable.app/",
     techStack: [],
     githubLink: "https://github.com/brundareddycse/medisafe-sahayak",
@@ -44,7 +58,8 @@ const localProjects = [
   {
     id: 5,
     title: "Stranger Things Fan Page",
-    description: "Built just for fun — a fan website for Stranger Things with a nostalgic 80s feel. Because why not.",
+    description:
+      "Built just for fun — a fan website for Stranger Things with a nostalgic 80s feel. Because why not.",
     link: "https://strangerthings033.lovable.app/",
     techStack: [],
     githubLink: "https://github.com/brundareddycse/strangerthings033",
@@ -59,6 +74,7 @@ export default function Projects() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-4">
 
@@ -71,6 +87,7 @@ export default function Projects() {
             >
               My Projects
             </motion.h1>
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -81,7 +98,7 @@ export default function Projects() {
             </motion.p>
           </div>
 
-          {/* Loader */}
+          {/* Loader / Projects */}
           {isLoading ? (
             <div className="flex justify-center items-center py-20">
               <Loader2 className="w-10 h-10 animate-spin text-primary" />
@@ -97,9 +114,9 @@ export default function Projects() {
               ))}
             </div>
           )}
-
         </div>
       </main>
+
       <Footer />
     </div>
   );
