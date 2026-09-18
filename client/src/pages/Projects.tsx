@@ -10,7 +10,7 @@ const localProjects = [
     title: "EasyRide",
     description: "A responsive multi-page ride-sharing service concept built with HTML, CSS and JavaScript.",
     link: "https://kadimisettijaswanth.github.io/coderush2k25/",
-    techStack: [],
+    techStack: [], 
     githubLink: "https://github.com/brundareddycse/EasyRide",
     imageUrl: "/easyride2.png",
   },
