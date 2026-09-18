@@ -6,6 +6,15 @@ import { motion } from "framer-motion";
 
 const localProjects = [
   {
+  id: 0,
+  title: "AI Startup Idea Validator",
+  description: "AI-powered startup idea validation platform using multi-agent intelligence for market research, competitor analysis, TAM/SAM/SOM sizing, SWOT risk evaluation, MVP recommendations and go-to-market strategy.",
+  link: "https://ai-startup-idea-validator-lac.vercel.app/",
+ 
+  githubLink: "https://github.com/mankurshirisha/AI-startup-idea-validator",
+  imageUrl: "/beforebeta.png",
+},
+  {
     id: 1,
     title: "EasyRide",
     description: "A responsive multi-page ride-sharing service concept built with HTML, CSS and JavaScript.",
