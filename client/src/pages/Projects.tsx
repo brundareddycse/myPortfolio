@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const localProjects = [
   {
-  id: 0,
+  id: 1,
   title: "AI Startup Idea Validator",
   description: "AI-powered startup idea validation platform using multi-agent intelligence for market research, competitor analysis, TAM/SAM/SOM sizing, SWOT risk evaluation, MVP recommendations and go-to-market strategy.",
   link: "https://ai-startup-idea-validator-lac.vercel.app/",
@@ -15,7 +15,7 @@ const localProjects = [
   imageUrl: "/beforebeta.png",
 },
   {
-    id: 1,
+    id: 2,
     title: "EasyRide",
     description: "A responsive multi-page ride-sharing service concept built with HTML, CSS and JavaScript.",
     link: "https://kadimisettijaswanth.github.io/coderush2k25/",
@@ -24,7 +24,7 @@ const localProjects = [
     imageUrl: "/easyride2.png",
   },
   {
-    id: 2,
+    id: 3,
     title: "Transaction & User Analytics",
     description: "Financial data analysis project using SQL — designing schemas, analyzing trends and building views for performance monitoring.",
     link: null,
@@ -33,7 +33,7 @@ const localProjects = [
     imageUrl: "/sql1.png",
   },
   {
-    id: 3,
+    id: 4,
     title: "MediSafe — Work in Progress",
     description: "A healthcare support web app for managing medical assistance and safety. Currently under active development — more features coming soon!",
     link: "https://medisafe-sahayak.lovable.app/",
@@ -42,7 +42,7 @@ const localProjects = [
     imageUrl: "/medisafe.png",
   },
   {
-    id: 4,
+    id: 5,
     title: "Stranger Things Fan Page",
     description: "Built just for fun — a fan website for Stranger Things with a nostalgic 80s feel. Because why not.",
     link: "https://strangerthings033.lovable.app/",
